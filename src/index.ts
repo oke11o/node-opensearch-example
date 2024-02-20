@@ -7,7 +7,7 @@ dotenv.config();
 
 
 const client = new Client({
-  node: 'https://admin:admin@localhost:9200'
+  node: 'http://localhost:9200'
 });
 
 const app: Application = express();
