@@ -1,5 +1,5 @@
 import { Client } from '@opensearch-project/opensearch';
-import express, { Request, Response , Application } from 'express';
+import express, { Request, Response, Application } from 'express';
 import dotenv from 'dotenv';
 
 //For env File 
@@ -13,7 +13,7 @@ const client = new Client({
 const app: Application = express();
 const port = process.env.PORT || 8000;
 
-app.get('/',async (req: Request, res: Response) => {
+app.get('/', async (req: Request, res: Response) => {
   console.log('Creating index:');
 
   const index_name = 'books';
@@ -25,13 +25,13 @@ app.get('/',async (req: Request, res: Response) => {
       },
     },
   };
-  
+
   const response = await client.indices.create({
     index: index_name,
     body: settings,
   });
-  
-  
+
+
   console.log(response.body);
 
   res.send('Welcome to Express & TypeScript Server!!!');
